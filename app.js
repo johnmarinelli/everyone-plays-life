@@ -51,12 +51,12 @@ io.on('connection', function(socket) {
   });
 });
 
-http.listen(3000, function() {
+http.listen(process.env.PORT || 5000, function() {
   // Start world on the server side
   setInterval(function() {
   console.log(world.mLiving.mSize);
     world.update();
     io.emit('live cells', world.getLiveCells());
   }, 2000);
-  console.log('Listening on 3000');
+  console.log('Listening');
 });

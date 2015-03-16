@@ -13,7 +13,7 @@ console.log(app.get('env'));
 var clients = {};
 
 // Seed world
-var graph = new Graph(100, 100, 1000, 1000);
+var graph = new Graph(process.argv[3] || 200, process.argv[3] || 200, 1000, 1000);
 var world = new World(graph);
 
 (function(world) {
@@ -52,11 +52,11 @@ io.on('connection', function(socket) {
 });
 
 http.listen(process.env.PORT || 5000, function() {
-  // Start world on the server side
+  // Start world on the server side.
   setInterval(function() {
   console.log(world.mLiving.mSize);
     world.update();
     io.emit('live cells', world.getLiveCells());
-  }, 2000);
+  }, process.argv[2] || 2000);
   console.log('Listening');
 });

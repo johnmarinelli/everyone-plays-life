@@ -61,10 +61,22 @@ footer {
   list-style-type: none;
   margin: 0px;
   padding-left: 0px;
-} .drag-and-drop-container ul > li {
+} .drag-and-drop-container ul.pattern-categories > li.pattern-category {
     display: inline-block;
     width: auto;
-  }
+    margin: 0px 10px;
+  } .drag-and-drop-container ul.pattern-categories > li.pattern-category ul.patterns {
+      display: none;
+      position: absolute;
+      bottom: 100%;
+      background: black;
+    }
+    .drag-and-drop-container ul.pattern-categories > li.pattern-category:hover ul.patterns {
+      display: block;
+    }
+    .drag-and-drop-container ul.pattern-categories > li.pattern-category:hover ul.patterns li{
+      display: block;
+    }
 
 @media (max-width: 979px) {
 

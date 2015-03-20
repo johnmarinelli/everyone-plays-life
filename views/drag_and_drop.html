@@ -1,8 +1,13 @@
 <!-- drag and drop interface -->
 <div class="drag-and-drop-container" ng-controller="lifePatterns">
-  <ul>
-    <li ng-repeat="(key, value) in lifePatterns" data-ca-shape="{{ key }}" set-click-handler>
-      <button>{{ key }}</button>
+  <ul class="pattern-categories">
+    <li class="pattern-category" ng-repeat="(category, name) in lifePatterns">
+      {{ category }}
+      <ul class="patterns">
+        <li class="pattern" ng-repeat="(patternName, patternData) in name" data-ca-category="{{ category }}" data-ca-shape="{{ patternName }}" set-click-handler>
+          {{ patternName }}
+        </li>
+      </ul>
     </li> 
   </ul>
 </div>

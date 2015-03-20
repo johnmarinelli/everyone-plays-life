@@ -26,8 +26,14 @@
   app.directive('setClickHandler', function() {
     return function(scope, elem, attrs) {
       $(elem).click(function() {
+        var category = $(this).attr('data-ca-category');
+        var patternName = $(this).attr('data-ca-shape');
+
+        console.log(category);
+        console.log(patternName);
         var shape = CAPredefinedShapes
-                    .getCurrentSelected($(this).attr('data-ca-shape'));
+                    .getCurrentSelected(category, patternName);
+
         user.currentShape = shape;
       });
     };
